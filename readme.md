@@ -8,7 +8,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
 * [kbd](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd) = The HTML Keyboard Input Element (kbd) represents user input and produces an inline element displayed in the browser's default monospace font.
 
-* Never look up the [ascii](keycode.info) table again!
+* Never look up the [ascii](www.keycode.info) table again!
 
 * `cmd + function + left/right arrow` to get to top/bottom
 
