@@ -1,0 +1,177 @@
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    height: 100vh;
+}
+
+body {
+    color: #f7f7f7;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+}
+
+.container::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url("thetroublewithtribbles.jpg");
+    opacity: .4;
+    content: "";
+    z-index: -1;
+}
+
+.enter {
+    display: flex;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+}
+
+.enter:hover {
+    cursor: pointer;
+}
+
+.tribblePic > h1 {
+    align-self: center;
+    margin: auto;
+    color: white;
+    font-weight: 400;
+}
+
+.intro {
+    margin-top: 10%;
+}
+
+.intro > h1 {
+    text-transform: uppercase;
+    font-size: 5rem;
+    font-weight: 400;
+    text-shadow: 0 0 5px white;
+    color: white;
+}
+.game-screen {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game {
+    display: flex;
+    flex: 1;
+    height: 400px;
+}
+
+.keyboard {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.hole {
+    flex: 1 0 10%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hole:after {
+    background: url("openBox1.svg") top center no-repeat;
+    transform: rotate(180deg);
+    background-size: cover;
+    content: '';
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    z-index: 2;
+    top: -45px;
+}
+
+.tribble {
+    background: url("tribble.png") bottom center no-repeat;
+    background-size: 100%;
+    position: relative;
+    margin: 0 auto;
+    top: -70px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-self: center;
+}
+
+.tribblePic {
+    background: url("tribble.png") bottom center no-repeat;
+    background-size: 100%;
+    margin: 20% auto;
+    width: 370px;
+    height: 370px;
+
+    text-shadow: 0 0 5px white;
+    text-transform: uppercase;
+    font-size: 5rem;
+    color: white;
+}
+
+.tribble > h1 {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: white;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #b3ffff;
+    box-shadow: 0 0 10px #b3ffff;
+}
+
+.hitMe {
+    transform: scale(1.1);
+    color: #b3ffff;
+    border-color: #b3ffff;
+    box-shadow: 0 0 10px #b3ffff;
+}
+
+.hitMe kbd {
+    color: #b3ffff;
+}
+
+.keys {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.key {
+    border: 4px solid black;
+    border-radius: 5px;
+    font-size: 0.5rem;
+    padding: 0.5rem .5rem;
+    transition: all .07s;
+    width: 75px;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 5px black;
+}
+
+kbd {
+    display: block;
+    font-size: 40px;
+}
+
+.sound {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #b3ffff;
+}
