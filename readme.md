@@ -27,5 +27,10 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 3. You lose if tribbles pile up to the top
 4. Keys to hit are not random, but actual words (random keys lighting up makes it not about typing)
 
+### JS + CSS Clock
 
+* transform-origin: default is 50%. If you change it to 100%, it moves the x to the very right and that's where the transforms will take place. Very cool.
 
+* help with time and some style: [JS30 Clock](http://codepen.io/thecageman/pen/YpJXVG) by [Dimitry](http://codepen.io/thecageman/). Fav line in this code: `time.innerHTML = ${hours}:${minutes}:${seconds < 10 ? '0'+seconds : seconds}`
+
+* [Animation & Layers](http://codepen.io/Haru89ka/pen/ZOzMGp?editors=1100) by [Anaislab](http://codepen.io/Haru89ka/)
