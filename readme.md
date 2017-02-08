@@ -14,6 +14,8 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
 * `cmd + shift up/down` to move line of code
 
+![ommmSpin](/images/ommmSpin.png "JS30 Drum Kit")
+
 ### Whack A Mole/Typing with Tribbles
 
 * Skipped to day 30 because I wanted to do a gamey-type thing
@@ -26,6 +28,8 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 2. If you hit the correct key, tribbles will not pile up
 3. You lose if tribbles pile up to the top
 4. Keys to hit are not random, but actual words (random keys lighting up makes it not about typing)
+
+![typingWithTribbles](/images/typingWithTribbles.png "JS30 Whack A Mole")
 
 ### JS + CSS Clock
 
