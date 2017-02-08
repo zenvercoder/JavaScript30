@@ -34,3 +34,5 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 * help with time and some style: [JS30 Clock](http://codepen.io/thecageman/pen/YpJXVG) by [Dimitry](http://codepen.io/thecageman/). Fav line in this code: `time.innerHTML = ${hours}:${minutes}:${seconds < 10 ? '0'+seconds : seconds}`
 
 * [Animation & Layers](http://codepen.io/Haru89ka/pen/ZOzMGp?editors=1100) by [Anaislab](http://codepen.io/Haru89ka/)
+
+![clock](/images/clock.png "JS30 clock")
