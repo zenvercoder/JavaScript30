@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Scoped CSS Variables and JS</title>
+</head>
+<body>
+
+<h2>Update <span class='hl'>Stormtrooper</span> with <span class='hl'>JS</span></h2>
+
+
+    <div class="controls">
+
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+
+        <!--<label for="margin">Margin:</label>-->
+        <!--<input type="range" name="margin" min="10" max="200" value="10" data-sizing="px">-->
+
+        <label for="height">Height:</label>
+        <input type="range" name="height" min="2" max="20" value="10" data-sizing="em">
+
+        <label for="width">Width:</label>
+        <input type="range" name="width" min="1" max="12" value="8" data-sizing="em">
+
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+        <label for="base">Base Color</label>
+        <input type="color" name="base" value="#ffc600">
+    </div>
+
+<div class="container">
+
+    <div class="head white">
+        <div class="left">
+            <div class="breathingHoles"></div>
+        </div>
+        <div class="right">
+            <div class="breathingHoles"></div>
+        </div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+        <div class="mouthHidder"></div>
+        <div class="ear earLeft"></div>
+        <div class="ear earRight"></div>
+        <div class="bottom">
+            <div class="circle circleLeft">
+                <div class="innerCircle"></div>
+            </div>
+            <div class="circle circleRight">
+                <div class="innerCircle"></div>
+            </div>
+            <div class="circleMiddle"></div>
+        </div>
+        <div class="eyebrow"></div>
+        <div class="eyesContainer">
+            <div class="eye eyeLeft"></div>
+            <div class="eye eyeRight"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --base: #ffc600;
+        /*--margin: 10px;*/
+        --height: 10em;
+        --width: 8em;
+        --size: 110px;
+        --spacing: 10px;
+        --blur: 10px;
+    }
+
+    .hl {
+        color: var(--base);
+    }
+
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+
+    body {
+        text-align: center;
+        /*background: #193549;*/
+        background: #344451;
+        color: white;
+        font-family: 'helvetica neue', sans-serif;
+        font-weight: 100;
+        /*display: flex; */
+        align-items: center;
+        justify-content: space-around;
+        font-size: 5vmin;
+        height: 100%;
+    }
+
+    .container {
+        display: inline-block;
+        justify-content: space-around;
+
+        /*border: 1px solid red;*/
+        width: 45%;
+        /*height: 100%;*/
+    }
+
+    .controls {
+        padding-top: 15px;
+        border-radius: 11px;
+        display: inline-block;
+        width: 179px;
+        margin-left: -350px;
+        height: 444px;
+    }
+
+    a {
+        color: var(--base);
+        text-decoration: none;
+    }
+
+    input {
+        width: 100px;
+        margin-bottom: 50px;
+    }
+
+    .head {
+        justify-content: space-around;
+        position: relative;
+        left: 5em;
+        flex: 0 0 8em;
+        /*margin: 1em;*/
+        /*width: 8em;*/
+        /*height: 10em;*/
+        width: var(--width);
+        height: var(--height);
+        border-radius: 4em;
+        box-shadow: inset 0.5em 0 0 rgba(0, 0, 0, 0.2), inset -0.5em 0 0 rgba(0, 0, 0, 0.2);
+        /*margin: var(--margin);*/
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+    }
+
+    .head.white {
+        color: white;
+    }
+
+    .head:before {
+        content: '';
+        position: absolute;
+        top: 40%;
+        left: -2.5%;
+        width: 105%;
+        height: 0.5em;
+        background: #2A2A2A;
+        border-radius: 0.25em;
+        box-shadow: inset 0 -0.25em 0.125em rgba(0, 0, 0, 0.75), inset 1em 0 0.125em rgba(0, 0, 0, 0.5), inset -1em 0 0.125em rgba(0, 0, 0, 0.5);
+    }
+
+    .head:after {
+        content: '';
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 0.5em;
+        background: #344451;
+    }
+
+    .left {
+        position: absolute;
+        top: 70%;
+        left: 0em;
+        width: 2em;
+        height: 4em;
+        background: var(--base);
+        border-radius: 4em;
+        transform-origin: center center;
+        transform: skew(30deg, 0deg);
+        box-shadow: inset 0.5em 0 0 rgba(0, 0, 0, 0.2), inset -0.5em 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .right {
+        position: absolute;
+        top: 70%;
+        right: 0em;
+        width: 2em;
+        height: 4em;
+        background: var(--base);
+        border-radius: 4em;
+        transform-origin: center center;
+        transform: skew(-30deg, 0deg);
+        box-shadow: inset 0.5em 0 0 rgba(0, 0, 0, 0.2), inset -0.5em 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .nose {
+        position: absolute;
+        top: 45%;
+        left: 40%;
+        width: 20%;
+        height: 0;
+    }
+
+    .nose:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 3em 1em;
+        border-color: transparent transparent rgba(0, 0, 0, 0.2) transparent;
+        transform: rotate(20deg);
+    }
+
+    .nose:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 1em 3em 0;
+        border-color: transparent transparent rgba(0, 0, 0, 0.2) transparent;
+        transform: rotate(-20deg);
+    }
+
+    .breathingHoles {
+        position: absolute;
+        top: 10%;
+        width: 20%;
+        height: 40%;
+        background: linear-gradient(to top, #000 0%, #000 25%, var(--base) 25%, var(--base) 71%, #000 71%, #000 100%);
+        background-size: 100% 10%;
+    }
+
+    .left .breathingHoles {
+        right: 20%;
+    }
+
+    .right .breathingHoles {
+        left: 20%;
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: -0.125em;
+        left: 0;
+        width: 100%;
+    }
+
+    .circle {
+        position: absolute;
+        bottom: -1em;
+        width: 2em;
+        height: 2em;
+        background: var(--base);
+        border-radius: 50%;
+    }
+
+    .circleLeft {
+        left: 1em;
+    }
+
+    .circleRight {
+        right: 1em;
+    }
+
+    .circle:before {
+        content: '';
+        position: absolute;
+        bottom: 0.125em;
+        width: 70%;
+        height: 70%;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+    }
+
+    .circleLeft:before {
+        right: 0.125em;
+    }
+
+    .circleRight:before {
+        left: 0.125em;
+    }
+
+    .circleLeft:after, .circleRight:after {
+        content: '';
+        position: absolute;
+        top: -0.125em;
+        left: 0;
+        width: 100%;
+        height: 0.5em;
+        background: var(--base);
+    }
+
+    .innerCircle {
+        position: absolute;
+        bottom: 15%;
+        width: 0.5em;
+        height: 0.5em;
+        background: #000;
+        border-radius: 50%;
+    }
+
+    .circleLeft .innerCircle {
+        right: 15%;
+        box-shadow: -0.0625em -0.0625em 0 #3B3D3C;
+    }
+
+    .circleRight .innerCircle {
+        left: 15%;
+        box-shadow: 0.0625em -0.0625em 0 #3B3D3C;
+    }
+
+    .circleMiddle {
+        position: absolute;
+        bottom: -1em;
+        right: calc(50% - 1em);
+        width: 2em;
+        height: 2.5em;
+        background: linear-gradient(to right, #2c2c2c 0%, #2c2c2c 50%, #000000 50%, #000000 100%);
+        background-size: 20%;
+        border-radius: 50%;
+        box-shadow: inset 0em 0.25em 0.125em black, inset 0em -0.125em 0.065em rgba(255, 255, 255, 0.1), 0 -0.25em 0 0.25em rgba(0, 0, 0, 0.2);
+    }
+
+    .eyesContainer {
+        position: absolute;
+        top: 47%;
+        left: 15%;
+        width: 70%;
+        height: 1.5em;
+        border-radius: 0.5em;
+        overflow: hidden;
+    }
+
+    .eye {
+        position: absolute;
+        top: 0%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        box-sizing: border-box;
+    }
+
+    .eyebrow {
+        position: absolute;
+        top: 47%;
+        left: 10%;
+        width: 80%;
+        height: 0.5em;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .eyeLeft {
+        border-width: 1.5em 2.25em 0 0;
+        border-color: #0c1212 transparent transparent transparent;
+        left: 0%;
+    }
+
+    .eyeRight {
+        border-width: 0 2.25em 1.5em 0;
+        border-color: transparent #0c1212 transparent transparent;
+        right: 0%;
+    }
+
+    .mouth {
+        position: absolute;
+        top: 70%;
+        left: 20%;
+        width: 60%;
+        height: 1em;
+        background: linear-gradient(to right, #2c2c2c 0%, #2c2c2c 50%, #000000 50%, #000000 100%);
+        background-size: 10%;
+        box-shadow: inset 0 0.25em 0.25em rgba(0, 0, 0, 0.5), inset 0 -0.25em 0.0625em var(--base);
+    }
+
+    .mouth:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 1em 2em 0 0;
+        border-color: var(--base) transparent transparent transparent;
+    }
+
+    .mouth:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 2em 1em 0;
+        border-color: transparent var(--base) transparent transparent;
+    }
+
+    .mouthHidder {
+        position: absolute;
+        top: 73%;
+        left: calc(50% - 2em);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 2em 0.5em 2em;
+        border-color: transparent transparent var(--base) transparent;
+    }
+
+    .ear {
+        position: absolute;
+        top: 50%;
+        width: 1em;
+        height: 2em;
+        background: var(--base);
+    }
+
+    .ear:before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 0.25em);
+        width: 0.25em;
+        height: 0.5em;
+        background: #000;
+    }
+
+    .earLeft {
+        left: -0.5em;
+        box-shadow: inset 0.25em 0 0 rgba(0, 0, 0, 0.2);
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+    }
+
+    .earLeft:before {
+        left: -0.25em;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+
+    .earRight {
+        right: -0.5em;
+        box-shadow: inset -0.25em 0 0 rgba(0, 0, 0, 0.2);
+        border-top-right-radius: 1em;
+        border-bottom-right-radius: 1em;
+    }
+
+    .earRight:before {
+        right: -0.25em;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+
+</style>
+
+<script>
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpdate() {
+        const suffix = this.dataset.sizing || '';
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+</script>
+
+
+</body>
+</html>
