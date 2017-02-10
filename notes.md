@@ -33,4 +33,12 @@
 
 * [Animation & Layers](http://codepen.io/Haru89ka/pen/ZOzMGp?editors=1100) by [Anaislab](http://codepen.io/Haru89ka/)
 
+* Almost forgot: [Jellyfish loader](http://codepen.io/ispal/pen/apKZQd) by [Irko Palenius](http://codepen.io/ispal/)
+
 ![clock](/images/clock.png "JS30 clock")
+
+### Playing with CSS Variables and JS
+
+* [Stormtroopers](http://codepen.io/HermineF/pen/yeONYO?editors=0110) pen by [HermineF](http://codepen.io/HermineF/)
+
+![Stormtrooper](/images/stormTrooper.png "Stormtrooper")
