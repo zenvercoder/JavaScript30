@@ -41,4 +41,4 @@
 
 * [Stormtroopers](http://codepen.io/HermineF/pen/yeONYO?editors=0110) pen by [HermineF](http://codepen.io/HermineF/)
 
-![Stormtrooper](/images/stormTrooper.png "Stormtrooper")
+![stormTrooper](/images/stormTrooper.png "stormTrooper")
