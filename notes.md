@@ -42,3 +42,12 @@
 * [Stormtroopers](http://codepen.io/HermineF/pen/yeONYO?editors=0110) pen by [HermineF](http://codepen.io/HermineF/)
 
 ![stormTrooper](/images/stormTrooper.png "stormTrooper")
+
+
+### Array Cardio Day 1
+
+* querySelector returns a NodeList, not an array. NodeList does not have a .map() method. To get around that, you can wrap the entire thing in Array.from (like `Array.from(category.querySelectorAll('a'));`) or you can use ES6 spread. A spread will take every item out of something (an "iterable" like a NodeList) and put it into an array like `const link = [...category.querySelectorAll('a')];`
+
+* link.textContext = Get the text content of the <link> element
+
+* .reduce() = a method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value. In other words, takes all the things in the array and reduces it all into one value. `arr.reduce(callback, [initialValue])`
