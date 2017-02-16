@@ -50,4 +50,47 @@
 
 * link.textContext = Get the text content of the <link> element
 
-* .reduce() = a method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value. In other words, takes all the things in the array and reduces it all into one value. `arr.reduce(callback, [initialValue])`
+* The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+`var newArray = arr.filter(callback[, thisArg])`
+
+* The map() method creates a new array with the results of calling a provided function on every element in this array.
+
+`var new_array = arr.map(callback[, thisArg])`
+
+* The sort() method sorts the elements of an array in place and returns the array. 
+
+* `function compare(a, b) {
+    if (a is less than b by some ordering criterion) {
+      return -1;
+    }
+    if (a is greater than b by the ordering criterion) {
+      return 1;
+    }
+    // a must be equal to b
+    return 0;
+  }`
+
+* .reduce() = a method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value. In other words, takes all the things in the array and reduces it all into one value. 
+
+`arr.reduce(callback, [initialValue])`
+
+### Flex Panel Gallery
+
+* box-sizing: border-box: margin not included in height + width
+
+* display: flex; a flex item can alater its dimensions to fill available space. Enables a flex context for all its direct children
+
+* flex: 1; the children will evenly distribute their space amongst themselves
+
+* nested flexboxes in this example: `.panels` + `.panel` both display: flex.
+ 
+* `.panels` = flex container `.panel` = flex item
+
+* `.panel` is also a flex container
+
+* flexbox default = stacked left-to-right
+
+* `panels.forEach(panel => panel.addEventListener('transitionend', toggleOpen);` if one writes `toggleOpen()`, it's calling the function and will run on page load automatically. We just want to give it reference to the function, not run it. 
+
+* `console.log(e.propertyName);` that was interesting. There were two transitions happening, so that would have made `panel.addEventListener('transitionend'` behave differently than I would have expected. 

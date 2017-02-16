@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In Harmony's Way</title>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<style>
+    html {
+        /*margin not included in height + width*/
+        box-sizing: border-box;
+        background:#ffc600;
+        font-family:'helvetica neue';
+        font-size: 20px;
+        font-weight: 200;
+    }
+    body {
+        margin: 0;
+    }
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+    .panels {
+        min-height:100vh;
+        overflow: hidden;
+        /*flex container. its children (.panel) are flex items*/
+        display: flex;
+    }
+
+    .panel {
+        background:#6B0F9C;
+        box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+        color:white;
+        text-align: center;
+        align-items:center;
+        /* Safari transitionend event.propertyName === flex */
+        /* Chrome + FF transitionend event.propertyName === flex-grow */
+        transition:
+                font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                background 0.2s;
+        font-size: 20px;
+        background-size:cover;
+        background-position:center;
+        /*the children will evenly distribute their space amongst themselves*/
+        flex: 1;
+        justify-content: center;
+        /*flex container. its children (<p> in this case) are flex items*/
+        /*also a flex item b/c it's in a flex container already. the parent is .panels above*/
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .panel1 { background-image:url('./images/space2.jpg'); }
+    .panel2 { background-image:url('./images/stage.jpeg'); }
+    .panel3 { background-image:url('./images/dance1.jpg'); }
+    .panel4 { background-image:url('./images/bey.jpg'); }
+    .panel5 { background-image:url('./images/red_rocks2.jpg'); }
+    .panel6 { background-image:url('./images/bird_singing.jpg'); }
+
+    /* Flex Items */
+    .panel > * {
+        margin:0;
+        width: 100%;
+        transition:transform 0.5s;
+        flex: 1 0 auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .panel > *:first-child { transform: translateY(-100%); }
+    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:last-child { transform: translateY(100%); }
+    .panel.open-active > *:last-child { transform: translateY(0); }
+
+    .panel p {
+        text-transform: uppercase;
+        font-family: 'Amatic SC', cursive;
+        text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+        font-size: 2em;
+    }
+    .panel p:nth-child(2) {
+        font-size: 4em;
+    }
+
+    .panel.open {
+        flex: 5;
+        font-size:40px;
+    }
+
+    .cta {
+        color:white;
+        text-decoration: none;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+</style>
+
+<a target="_blank" href=""></a>
+
+
+<div class="panels">
+    <div class="panel panel1">
+        <p>
+             <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/74252392/"> Ellen + </a>
+             <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/30453192/"> Roy</a>
+        </p>
+        <p>SING</p>
+        <p>The Founders of our Group</p>
+    </div>
+    <div class="panel panel2">
+        <p> <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/6284739/"> Julia + </a>
+            <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/183087841/"> Jen</a>
+        </p>
+        <p>AND</p>
+        <p>Can belt out a mean solo</p>
+    </div>
+    <div class="panel panel3">
+        <p> <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/1795537/"> Vinitia</a>
+        </p>
+        <p>DANCE</p>
+        <p>Let the girl dance!</p>
+    </div>
+    <div class="panel panel4">
+        <p> <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/214923455/"> Vi</a>
+        </p>
+        <p>ALL</p>
+        <p>A lil bit gangsta + a whole lotta love</p>
+    </div>
+    <div class="panel panel5">
+        <p>
+            <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/107666732/"> Lisa + </a>
+            <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/9605995/"> Kera</a>
+        </p>
+        <p>THE</p>
+        <p>Lisa likes The spaces between. Kera is The Rock; strong and steady.</p>
+    </div>
+    <div class="panel panel6">
+        <p>
+            <a target="_blank" href="https://www.meetup.com/A-Capella-Improvising-An-Advanced-Ensemble/members/9755268/"> Joy</a>
+        </p>
+        <p>SONGS</p>
+        <p>True to her name, she's a Joyful Songbird</p>
+    </div>
+</div>
+
+<script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+        console.log('Hello');
+        this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+        // git statusshows that there are two transitions happening when the panel is toggled open
+        console.log(e.propertyName);
+        // because safari is flex, everything else is flex-grow
+        if (e.propertyName.includes('flex')) {
+            this.classList.toggle('open-active');
+        }
+    }
+
+    // giving a reference to function toggleOpen (not calling the funtion)
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    // giving a reference to function toggleActive
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+</script>
+
+</body>
+</html>
