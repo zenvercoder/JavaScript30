@@ -93,4 +93,12 @@
 
 * `panels.forEach(panel => panel.addEventListener('transitionend', toggleOpen);` if one writes `toggleOpen()`, it's calling the function and will run on page load automatically. We just want to give it reference to the function, not run it. 
 
-* `console.log(e.propertyName);` that was interesting. There were two transitions happening, so that would have made `panel.addEventListener('transitionend'` behave differently than I would have expected. 
+* `console.log(e.propertyName);` that was interesting. There were two transitions happening, so that would have made `panel.addEventListener('transitionend'` behave differently than I would have expected.
+ 
+### Type Ahead
+
+* fetch will return a promise
+
+* blob has a .json method which returns another promise
+
+* blob = binary large object
