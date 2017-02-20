@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form class="search-form">
+    <input type="text" class="search" placeholder="Search Reddit Uplifting">
+    <ul class="suggestions">
+        <li>Suggestions</li>
+    </ul>
+</form>
+<script>
+    // reddit uplifting
+    const endpoint = 'https://www.reddit.com/r/UpliftingNews/hot/.json';
+    const titles = [];
+
+    fetch(endpoint)
+            .then(blob => blob.json())
+            .then(data => data.data.children.forEach(item => titles.push(item.data.title)))
+            .then(console.log(titles));
+
+    function findMatches(wordToMatch, titles) {
+        return titles.filter(title => {
+            // here we need to figure out if the title matches what was searched
+            // 'gi' = global (case)insensitive
+            const regex = new RegExp(wordToMatch, 'gi');
+            return title.match(regex)
+        });
+    }
+
+    function displayMatches() {
+        const matchArray = findMatches(this.value, titles);
+        const html = matchArray.map(title => {
+            const regex = new RegExp(this.value, 'gi');
+            const titleName = title.replace(regex, `<span class="hl">${this.value}</span>`);
+            return `<li><span class="name">${titleName}</span></li>`;
+        }).join('');
+        suggestions.innerHTML = html;
+    }
+
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', displayMatches);
+
+</script>
+</body>
+</html>
