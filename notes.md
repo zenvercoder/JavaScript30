@@ -102,3 +102,17 @@
 * blob has a .json method which returns another promise
 
 * blob = binary large object
+
+### Array Cardio Day 2
+
+* `.some()` will check if at least one thing in your array meets what you are looking for. `.some()` will take a function.
+
+* `.every()` like some, but checks if every thing in array meets criteria
+
+* `.find()` like `.filter()`, but instead of returning a subset of the array, it will return the first item it finds
+
+* `.findIndex()` for when you want to delete an item, but don't know that index (for example)
+
+### Fun with HTML5 Canvas
+
+* [Forked particles](http://codepen.io/zenvercoder/pen/ryvEPG)
