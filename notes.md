@@ -116,3 +116,11 @@
 ### Fun with HTML5 Canvas
 
 * [Forked particles](http://codepen.io/zenvercoder/pen/ryvEPG)
+
+### Dev Tools Domination - fave/most interesting learns/exposures
+
+* `console.log('%c I am some great text', 'font-size:50px;')`
+
+* `console.groupCollapsed(`${dog.name}`);` + `console.groupEnd(`${dog.name}`);`
+ 
+* `console.time('fetching data');` + `console.timeEnd('fetching data');`
